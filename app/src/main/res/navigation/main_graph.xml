@@ -22,7 +22,13 @@
     <fragment
         android:id="@+id/newsDetailFragment"
         android:name="com.yeongjin.news.view.newsdetails.NewsDetailFragment"
-        android:label="NewsDetailFragment" />
+        android:label="NewsDetailFragment" >
+        <argument
+            android:name="news"
+            app:argType="com.yeongjin.news.data.model.News"
+            />
+
+    </fragment>
     <fragment
         android:id="@+id/savedNewsListFragment"
         android:name="com.yeongjin.news.view.saved.SavedNewsListFragment"

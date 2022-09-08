@@ -3,6 +3,7 @@ package com.yeongjin.news.view.newslist
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.yeongjin.news.R
 import com.yeongjin.news.databinding.FragmentNewsListBinding
 import com.yeongjin.news.global.base.BaseFragment

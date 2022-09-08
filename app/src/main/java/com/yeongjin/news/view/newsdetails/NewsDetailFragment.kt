@@ -5,16 +5,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.navArgs
 import com.yeongjin.news.R
 import com.yeongjin.news.databinding.FragmentNewsDetailBinding
 import com.yeongjin.news.global.base.BaseFragment
 
 class NewsDetailFragment : BaseFragment<FragmentNewsDetailBinding>(R.layout.fragment_news_detail) {
     override val TAG: String = NewsDetailFragment::class.java.simpleName
+    private val args by navArgs<NewsDetailFragmentArgs>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.news = args.news
+        binding.newsImageView.clipToOutline = true
     }
 
 }

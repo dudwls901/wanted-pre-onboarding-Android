@@ -1,21 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="news"
+            type="com.yeongjin.news.data.model.News" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".view.newsdetails.NewsDetailFragment">
 
-        <!-- TODO: Update blank fragment layout -->
-        <TextView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="detail" />
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/newsTitleTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{news.description}"
+                app:layout_constraintEnd_toStartOf="@id/newsLikeButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/newsLikeButton"
+                tools:text="adfmiamdifomiqmfeiojiokioqjifo" />
+
+            <ImageView
+                android:id="@+id/newsLikeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="21dp"
+                android:src="@drawable/ic_star_border_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/news_image" />
+
+            <TextView
+                android:id="@+id/newsAuthorTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:text="@{news.author}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/newsTitleTextView"
+                tools:text="Pedro Berrill" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@{news.publishedAt}"
+                app:constraintSet="@id/newsAuthorTextView"
+                app:layout_constraintBottom_toBottomOf="@id/newsAuthorTextView"
+                app:layout_constraintStart_toEndOf="@id/newsAuthorTextView"
+                app:layout_constraintTop_toTopOf="@id/newsAuthorTextView"
+                tools:text="3 days ago" />
+
+            <ImageView
+                android:id="@+id/newsImageView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/background_radius_15_border_gray_1"
+                android:contentDescription="@string/news_image"
+                android:imageUrl="@{news.urlToImage}"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/newsAuthorTextView"
+                tools:src="@drawable/ic_launcher_background" />
+
+            <TextView
+                android:id="@+id/newsContentTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{news.content}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/newsImageView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>
