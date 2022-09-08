@@ -16,8 +16,8 @@
         android:name="com.yeongjin.news.view.categories.NewsCategoryFragment"
         android:label="NewsCategoryFragment" >
         <action
-            android:id="@+id/action_newsCategoryFragment_to_newsListFragment"
-            app:destination="@id/newsListFragment" />
+            android:id="@+id/action_newsCategoryFragment_to_newsListInCategoryFragment"
+            app:destination="@id/newsListInCategoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/newsDetailFragment"
@@ -35,6 +35,17 @@
         android:label="SavedNewsListFragment" >
         <action
             android:id="@+id/action_savedNewsListFragment_to_newsDetailFragment"
+            app:destination="@id/newsDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsListInCategoryFragment"
+        android:name="com.yeongjin.news.view.categories.NewsListInCategoryFragment"
+        android:label="NewsListInCategoryFragment" >
+        <argument
+            android:name="category"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_newsListInCategoryFragment_to_newsDetailFragment"
             app:destination="@id/newsDetailFragment" />
     </fragment>
 </navigation>

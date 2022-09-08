@@ -1,19 +1,22 @@
-package com.yeongjin.news.view.newslist
+package com.yeongjin.news.view.categories
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import com.yeongjin.news.R
-import com.yeongjin.news.databinding.FragmentNewsListBinding
+import com.yeongjin.news.databinding.FragmentCategoryNewsListBinding
 import com.yeongjin.news.global.base.BaseFragment
 import com.yeongjin.news.view.adapter.NewsListAdapter
-import com.yeongjin.news.viewmodel.NewsListViewModel
+import com.yeongjin.news.viewmodel.NewsListIntCategoryViewModel
 
-class NewsListFragment : BaseFragment<FragmentNewsListBinding>(R.layout.fragment_news_list) {
-    override val TAG: String = NewsListFragment::class.java.simpleName
+//todo NewsListFragment 추상화
+class NewsListInCategoryFragment : BaseFragment<FragmentCategoryNewsListBinding>(R.layout.fragment_category_news_list) {
+    override val TAG: String = NewsListInCategoryFragment::class.java.simpleName
 
     private val adapter: NewsListAdapter by lazy { NewsListAdapter() }
-    private val newsListViewModel: NewsListViewModel by viewModels()
+    private val newsListViewModel: NewsListIntCategoryViewModel by viewModels()
+    private val args by navArgs<NewsListInCategoryFragmentArgs>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -23,7 +26,7 @@ class NewsListFragment : BaseFragment<FragmentNewsListBinding>(R.layout.fragment
     }
     private fun initViews() = with(binding){
         newsListRecyclerView.adapter = adapter
-        newsListViewModel.getNews()
+        newsListViewModel.getCategoryNews(args.category)
     }
 
     private fun observeDatas() {

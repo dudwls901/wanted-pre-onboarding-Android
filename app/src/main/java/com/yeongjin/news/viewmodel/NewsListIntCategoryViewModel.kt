@@ -10,17 +10,16 @@ import com.yeongjin.news.data.repository.NewsRepositoryImpl
 import com.yeongjin.news.global.Constants
 import kotlinx.coroutines.launch
 
-//todo ListViewModel 추상화
-class NewsListViewModel: ViewModel() {
-    private val TAG = NewsListViewModel::class.java.name
+class NewsListIntCategoryViewModel: ViewModel() {
+    private val TAG = NewsListIntCategoryViewModel::class.java.name
 
     private var _newsList = MutableLiveData<List<News>>()
     val newsList: LiveData<List<News>>
         get() = _newsList
 
-    fun getNews() = viewModelScope.launch{
+    fun getCategoryNews(category: String) = viewModelScope.launch{
         val newsRepo = NewsRepositoryImpl()
-        val result = newsRepo.getTopNewsList(Constants.COUNTRY.US.name)
+        val result = newsRepo.getCategoryNewsList(Constants.COUNTRY.US.name, category)
         if(result.isSuccessful){
             if(result.code()==200){
                 result.body()?.let{ body ->

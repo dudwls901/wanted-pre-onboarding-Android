@@ -10,7 +10,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:sendDataToDetailFragment="@{news}"
+        android:navigateWithData="@{news}"
         android:id="@+id/newsLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

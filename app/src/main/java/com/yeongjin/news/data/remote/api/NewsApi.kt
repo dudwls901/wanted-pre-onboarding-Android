@@ -9,5 +9,11 @@ import retrofit2.http.Query
 
 interface NewsApi {
     @GET(TOP_HEADLINES)
-    suspend fun getNewsList(@Query("country") country: String): Response<NewsList>
+    suspend fun getTopNewsList(@Query("country") country: String): Response<NewsList>
+
+    @GET(TOP_HEADLINES)
+    suspend fun getCategoryNewsList(
+        @Query("country") country: String,
+        @Query("category") category: String
+    ): Response<NewsList>
 }
