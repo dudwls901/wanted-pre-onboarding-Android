@@ -10,8 +10,8 @@ import com.yeongjin.news.data.repository.NewsRepositoryImpl
 import com.yeongjin.news.global.Constants
 import kotlinx.coroutines.launch
 
-class MainViewModel: ViewModel() {
-    private val TAG = MainViewModel::class.java.name
+class NewsListViewModel: ViewModel() {
+    private val TAG = NewsListViewModel::class.java.name
 
     private var _newsList = MutableLiveData<List<News>>()
     val newsList: LiveData<List<News>>
@@ -19,7 +19,7 @@ class MainViewModel: ViewModel() {
 
     fun getNews() = viewModelScope.launch{
         val newsRepo = NewsRepositoryImpl()
-        val result = newsRepo.getNews(Constants.Country.US.name)
+        val result = newsRepo.getTopNewsList(Constants.Country.US.name)
         if(result.isSuccessful){
             if(result.code()==200){
                 result.body()?.let{ body ->
