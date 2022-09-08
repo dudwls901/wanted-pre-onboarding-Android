@@ -9,19 +9,19 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.yeongjin.news.data.model.News
-import com.yeongjin.news.databinding.NewsListItemBinding
+import com.yeongjin.news.databinding.ItemNewsListBinding
 
 class NewsListAdapter: ListAdapter<News, NewsListAdapter.NewsListViewHolder>(diffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsListViewHolder = NewsListViewHolder(
-        NewsListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        ItemNewsListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
     )
 
     override fun onBindViewHolder(holder: NewsListViewHolder, position: Int) {
         holder.bind(currentList[position])
     }
 
-    class NewsListViewHolder(private val binding: NewsListItemBinding) :
+    class NewsListViewHolder(private val binding: ItemNewsListBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(news: News) {
             binding.newsLayout.clipToOutline = true
