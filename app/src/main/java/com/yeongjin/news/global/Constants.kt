@@ -8,4 +8,8 @@ object Constants {
     enum class Country{
         US
     }
+
+    enum class Category{
+        BUSINESS, ENTERTAINMENT, GENERAL, HELATH, SCIENCE, SPORTS, TECHNOLOGY
+    }
 }

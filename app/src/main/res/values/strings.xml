@@ -6,4 +6,6 @@
     <string name="categories">Categories</string>
     <string name="saved">Saved</string>
     <string name="news_image">newsImage</string>
+    <string name="category_icon">categoryIcon</string>
+    <string name="choose_category_header">Choose a category to start reading</string>
 </resources>

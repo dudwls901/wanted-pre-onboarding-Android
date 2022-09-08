@@ -13,7 +13,7 @@ object BindingAdapter {
 
     @BindingAdapter("android:imageUrl")
     @JvmStatic
-    fun setImageUri(view: ImageView, imageUrl: String){
+    fun setImageUri(view: ImageView, imageUrl: Any){
         Glide.with(view.context)
             .load(imageUrl)
             .error(R.drawable.ic_news_24)
