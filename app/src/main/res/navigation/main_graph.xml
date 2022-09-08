@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/newsListFragment">
+    <fragment
+        android:id="@+id/newsListFragment"
+        android:name="com.yeongjin.news.view.newslist.NewsListFragment"
+        android:label="NewsListFragment" >
+        <action
+            android:id="@+id/action_newsListFragment_to_newsDetailFragment"
+            app:destination="@id/newsDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsCategoryFragment"
+        android:name="com.yeongjin.news.view.categories.NewsCategoryFragment"
+        android:label="NewsCategoryFragment" >
+        <action
+            android:id="@+id/action_newsCategoryFragment_to_newsListFragment"
+            app:destination="@id/newsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsDetailFragment"
+        android:name="com.yeongjin.news.view.newsdetails.NewsDetailFragment"
+        android:label="NewsDetailFragment" />
+    <fragment
+        android:id="@+id/savedNewsListFragment"
+        android:name="com.yeongjin.news.view.saved.SavedNewsListFragment"
+        android:label="SavedNewsListFragment" >
+        <action
+            android:id="@+id/action_savedNewsListFragment_to_newsDetailFragment"
+            app:destination="@id/newsDetailFragment" />
+    </fragment>
+</navigation>
