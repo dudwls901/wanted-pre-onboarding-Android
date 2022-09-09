@@ -1,7 +1,5 @@
-package com.yeongjin.news.data.repository
+package com.yeongjin.news.data.remote.repository
 
-import com.yeongjin.news.data.model.Category
-import com.yeongjin.news.data.model.News
 import com.yeongjin.news.data.model.NewsList
 import retrofit2.Response
 
