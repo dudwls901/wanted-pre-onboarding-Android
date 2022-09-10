@@ -10,8 +10,11 @@ import com.yeongjin.news.R
 import com.yeongjin.news.data.model.News
 import com.yeongjin.news.global.Constants
 import com.yeongjin.news.view.categories.NewsCategoryFragmentDirections
+import com.yeongjin.news.view.categories.NewsListInCategoryFragment
 import com.yeongjin.news.view.categories.NewsListInCategoryFragmentDirections
+import com.yeongjin.news.view.newslist.NewsListFragment
 import com.yeongjin.news.view.newslist.NewsListFragmentDirections
+import com.yeongjin.news.view.saved.SavedNewsListFragmentDirections
 import java.lang.Exception
 
 object BindingAdapter {
@@ -25,20 +28,25 @@ object BindingAdapter {
             .into(view)
     }
 
-    @BindingAdapter("android:navigateWithData")
+    @BindingAdapter("android:navigateWithData", "android:fragment")
     @JvmStatic
-    fun sendDataToDetailFragment(view: ConstraintLayout, data: Any) {
+    fun navigateWithData(view: ConstraintLayout, data: Any, fragment: String?) {
         view.setOnClickListener {
             when (data) {
                 is News -> {
-                    val action = when (view.findNavController().currentDestination!!.id) {
-                        R.layout.fragment_news_list -> {
+                    val action = when (fragment) {
+                        NewsListFragment::class.java.simpleName -> {
                             NewsListFragmentDirections.actionNewsListFragmentToNewsDetailFragment(
                                 data
                             )
                         }
-                        else -> {
+                        NewsListInCategoryFragment::class.java.simpleName -> {
                             NewsListInCategoryFragmentDirections.actionNewsListInCategoryFragmentToNewsDetailFragment(
+                                data
+                            )
+                        }
+                        else -> {
+                            SavedNewsListFragmentDirections.actionSavedNewsListFragmentToNewsDetailFragment(
                                 data
                             )
                         }

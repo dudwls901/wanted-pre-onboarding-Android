@@ -9,21 +9,22 @@ import androidx.recyclerview.widget.RecyclerView
 import com.yeongjin.news.data.model.News
 import com.yeongjin.news.databinding.ItemNewsListBinding
 
-class NewsListAdapter: ListAdapter<News, NewsListAdapter.NewsListViewHolder>(diffUtil) {
+class NewsListAdapter(private val fragment: String): ListAdapter<News, NewsListAdapter.NewsListViewHolder>(diffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsListViewHolder = NewsListViewHolder(
-        ItemNewsListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        ItemNewsListBinding.inflate(LayoutInflater.from(parent.context), parent, false), fragment
     )
 
     override fun onBindViewHolder(holder: NewsListViewHolder, position: Int) {
         holder.bind(currentList[position])
     }
 
-    class NewsListViewHolder(private val binding: ItemNewsListBinding) :
+    class NewsListViewHolder(private val binding: ItemNewsListBinding, private val fragment: String) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(news: News) {
             binding.newsLayout.clipToOutline = true
             binding.news = news
+            binding.fragment = fragment
         }
     }
     companion object{

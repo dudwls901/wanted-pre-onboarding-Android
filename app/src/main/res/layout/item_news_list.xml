@@ -7,10 +7,14 @@
         <variable
             name="news"
             type="com.yeongjin.news.data.model.News" />
+        <variable
+            name="fragment"
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:navigateWithData="@{news}"
+        android:fragment="@{fragment}"
         android:id="@+id/newsLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

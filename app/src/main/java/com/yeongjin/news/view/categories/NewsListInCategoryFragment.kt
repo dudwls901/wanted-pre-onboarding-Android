@@ -8,13 +8,14 @@ import com.yeongjin.news.R
 import com.yeongjin.news.databinding.FragmentCategoryNewsListBinding
 import com.yeongjin.news.global.base.BaseFragment
 import com.yeongjin.news.view.adapter.NewsListAdapter
+import com.yeongjin.news.view.newslist.NewsListFragment
 import com.yeongjin.news.viewmodel.NewsListIntCategoryViewModel
 
 //todo NewsListFragment 추상화
 class NewsListInCategoryFragment : BaseFragment<FragmentCategoryNewsListBinding>(R.layout.fragment_category_news_list) {
     override val TAG: String = NewsListInCategoryFragment::class.java.simpleName
 
-    private val adapter: NewsListAdapter by lazy { NewsListAdapter() }
+    private val adapter: NewsListAdapter by lazy { NewsListAdapter(NewsListInCategoryFragment::class.java.simpleName) }
     private val newsListViewModel: NewsListIntCategoryViewModel by viewModels()
     private val args by navArgs<NewsListInCategoryFragmentArgs>()
 

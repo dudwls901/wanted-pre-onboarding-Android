@@ -12,7 +12,7 @@ import com.yeongjin.news.viewmodel.NewsListViewModel
 class NewsListFragment : BaseFragment<FragmentNewsListBinding>(R.layout.fragment_news_list) {
     override val TAG: String = NewsListFragment::class.java.simpleName
 
-    private val adapter: NewsListAdapter by lazy { NewsListAdapter() }
+    private val adapter: NewsListAdapter by lazy { NewsListAdapter(NewsListFragment::class.java.simpleName) }
     private val newsListViewModel: NewsListViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
