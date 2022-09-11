@@ -22,6 +22,7 @@
 
             <TextView
                 android:id="@+id/newsTitleTextView"
+                style="@style/NewsTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@{vm.news.description}"
@@ -35,14 +36,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="21dp"
-                android:onClick="@{() -> vm.onLikeButtonClick()}"
+                android:contentDescription="@string/news_image"
                 android:likeButtonDrawable="@{vm.liked}"
+                android:onClick="@{() -> vm.onLikeButtonClick()}"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:contentDescription="@string/news_image" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/newsAuthorTextView"
+                style="@style/NewsAuthor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
@@ -52,6 +54,7 @@
                 tools:text="Pedro Berrill" />
 
             <TextView
+                style="@style/NewsTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -78,8 +81,10 @@
 
             <TextView
                 android:id="@+id/newsContentTextView"
+                style="@style/NewsContent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:text="@{vm.news.content}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
