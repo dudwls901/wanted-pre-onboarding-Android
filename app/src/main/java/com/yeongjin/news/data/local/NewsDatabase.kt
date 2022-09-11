@@ -9,7 +9,7 @@ import com.yeongjin.news.data.model.News
 @Database(entities = [News::class], version = 1, exportSchema = false)
 abstract class NewsDatabase: RoomDatabase() {
 
-    abstract fun toDoDao() : NewsDao
+    abstract fun newsDao() : NewsDao
 
     companion object{
 

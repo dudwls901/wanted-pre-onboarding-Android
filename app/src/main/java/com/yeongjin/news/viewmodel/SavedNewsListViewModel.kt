@@ -10,7 +10,7 @@ import com.yeongjin.news.data.model.News
 import kotlinx.coroutines.launch
 
 class SavedNewsListViewModel(application: Application) : AndroidViewModel(application) {
-    private val newsDao: NewsDao by lazy { NewsDatabase.getDatabase(application).toDoDao() }
+    private val newsDao: NewsDao by lazy { NewsDatabase.getDatabase(application).newsDao() }
     private val savedNewsRepo: SavedNewsRepository by lazy { SavedNewsRepositoryImpl(newsDao) }
     private val TAG = SavedNewsListViewModel::class.java.name
 
