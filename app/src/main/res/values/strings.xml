@@ -8,4 +8,5 @@
     <string name="news_image">newsImage</string>
     <string name="category_icon">categoryIcon</string>
     <string name="choose_category_header">Choose a category to start reading</string>
+    <string name="empty_saved_news">No news you save</string>
 </resources>

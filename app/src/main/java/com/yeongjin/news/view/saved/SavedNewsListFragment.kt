@@ -20,6 +20,7 @@ class SavedNewsListFragment : BaseFragment<FragmentSavedNewsListBinding>(R.layou
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.vm = savedNewsListViewModel
         initViews()
         observeDatas()
     }

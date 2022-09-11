@@ -2,7 +2,9 @@ package com.yeongjin.news.util
 
 import android.annotation.SuppressLint
 import android.util.Log
+import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.BindingAdapter
 import androidx.navigation.findNavController
@@ -19,6 +21,17 @@ import com.yeongjin.news.view.saved.SavedNewsListFragmentDirections
 import java.lang.Exception
 
 object BindingAdapter {
+
+    @BindingAdapter("android:emptyData")
+    @JvmStatic
+    fun emptyData(view: TextView, newsList: List<News>?){
+        if(newsList == null || newsList.isEmpty()){
+            view.visibility = View.VISIBLE
+        }else{
+            view.visibility = View.GONE
+        }
+
+    }
 
     @BindingAdapter("android:imageUrl")
     @JvmStatic
