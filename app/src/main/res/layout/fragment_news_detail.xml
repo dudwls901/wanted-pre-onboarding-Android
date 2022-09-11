@@ -26,10 +26,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@{vm.news.description}"
+                android:layout_marginEnd="14dp"
                 app:layout_constraintEnd_toStartOf="@id/newsLikeButton"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/newsLikeButton"
-                tools:text="adfmiamdifomiqmfeiojiokioqjifo" />
+                tools:text="title" />
 
             <ImageView
                 android:id="@+id/newsLikeButton"
