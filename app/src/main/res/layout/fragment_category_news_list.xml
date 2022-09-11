@@ -6,7 +6,7 @@
     <data>
         <variable
             name="vm"
-            type="com.yeongjin.news.viewmodel.NewsListViewModel" />
+            type="com.yeongjin.news.viewmodel.TopNewsListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
