@@ -22,11 +22,15 @@
     <fragment
         android:id="@+id/newsDetailFragment"
         android:name="com.yeongjin.news.view.newsdetails.NewsDetailFragment"
-        android:label="NewsDetailFragment" >
+        android:label="{title}">
         <argument
             android:name="news"
             app:argType="com.yeongjin.news.data.model.News"
             />
+        <argument
+            android:name="title"
+            app:argType="string"
+            app:nullable="true" />
 
     </fragment>
     <fragment
@@ -40,7 +44,7 @@
     <fragment
         android:id="@+id/newsListInCategoryFragment"
         android:name="com.yeongjin.news.view.categories.NewsListInCategoryFragment"
-        android:label="NewsListInCategoryFragment" >
+        android:label="Category - {category}" >
         <argument
             android:name="category"
             app:argType="string" />

@@ -37,17 +37,17 @@ object BindingAdapter {
                     val action = when (fragment) {
                         NewsListFragment::class.java.simpleName -> {
                             NewsListFragmentDirections.actionNewsListFragmentToNewsDetailFragment(
-                                data
+                                data, data.title
                             )
                         }
                         NewsListInCategoryFragment::class.java.simpleName -> {
                             NewsListInCategoryFragmentDirections.actionNewsListInCategoryFragmentToNewsDetailFragment(
-                                data
+                                data,data.title
                             )
                         }
                         else -> {
                             SavedNewsListFragmentDirections.actionSavedNewsListFragmentToNewsDetailFragment(
-                                data
+                                data,data.title
                             )
                         }
                     }
