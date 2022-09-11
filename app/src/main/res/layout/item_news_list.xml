@@ -55,11 +55,12 @@
         <TextView
             android:id="@+id/newsThubNailAuthorTextView"
             style="@style/NewsAuthor"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@{news.author}"
             app:layout_constraintStart_toStartOf="@id/newsThumbNailDescriptionTextView"
+            app:layout_constraintEnd_toStartOf="@id/newsThumbNailTimeTextView"
             app:layout_constraintTop_toBottomOf="@id/newsThumbNailDescriptionTextView"
             tools:text="Pedro Berrill" />
 
