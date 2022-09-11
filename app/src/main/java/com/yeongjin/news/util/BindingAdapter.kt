@@ -1,5 +1,6 @@
 package com.yeongjin.news.util
 
+import android.annotation.SuppressLint
 import android.util.Log
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -26,6 +27,16 @@ object BindingAdapter {
             .load(imageUrl)
             .error(R.drawable.ic_news_24)
             .into(view)
+    }
+
+    @BindingAdapter("android:likeButtonDrawable")
+    @JvmStatic
+    fun setLikeButtonDrawable(view: ImageView, liked: Boolean) {
+        if(liked){
+            view.setImageResource(R.drawable.ic_star_yellow_24)
+        } else{
+            view.setImageResource(R.drawable.ic_star_border_24)
+        }
     }
 
     @BindingAdapter("android:navigateWithData", "android:fragment")

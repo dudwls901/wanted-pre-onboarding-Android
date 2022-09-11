@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="news"
-            type="com.yeongjin.news.data.model.News" />
+            name="vm"
+            type="com.yeongjin.news.viewmodel.SavedNewsListViewModel" />
     </data>
 
     <ScrollView
@@ -24,7 +24,7 @@
                 android:id="@+id/newsTitleTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@{news.description}"
+                android:text="@{vm.news.description}"
                 app:layout_constraintEnd_toStartOf="@id/newsLikeButton"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/newsLikeButton"
@@ -35,7 +35,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="21dp"
-                android:src="@drawable/ic_star_border_24"
+                android:onClick="@{() -> vm.onLikeButtonClick()}"
+                android:likeButtonDrawable="@{vm.liked}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:contentDescription="@string/news_image" />
@@ -45,7 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
-                android:text="@{news.author}"
+                android:text="@{vm.news.author}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/newsTitleTextView"
                 tools:text="Pedro Berrill" />
@@ -54,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="@{news.publishedAt}"
+                android:text="@{vm.news.publishedAt}"
                 app:constraintSet="@id/newsAuthorTextView"
                 app:layout_constraintBottom_toBottomOf="@id/newsAuthorTextView"
                 app:layout_constraintStart_toEndOf="@id/newsAuthorTextView"
@@ -68,7 +69,7 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/background_radius_15_border_gray_1"
                 android:contentDescription="@string/news_image"
-                android:imageUrl="@{news.urlToImage}"
+                android:imageUrl="@{vm.news.urlToImage}"
                 android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -79,7 +80,7 @@
                 android:id="@+id/newsContentTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@{news.content}"
+                android:text="@{vm.news.content}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/newsImageView" />
