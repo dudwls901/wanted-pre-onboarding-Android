@@ -2,54 +2,9 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_graph"
-    app:startDestination="@id/newsListFragment">
-    <fragment
-        android:id="@+id/newsListFragment"
-        android:name="com.yeongjin.news.view.newslist.NewsListFragment"
-        android:label="NewsApp" >
-        <action
-            android:id="@+id/action_newsListFragment_to_newsDetailFragment"
-            app:destination="@id/newsDetailFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/newsCategoryFragment"
-        android:name="com.yeongjin.news.view.categories.NewsCategoryFragment"
-        android:label="Category" >
-        <action
-            android:id="@+id/action_newsCategoryFragment_to_newsListInCategoryFragment"
-            app:destination="@id/newsListInCategoryFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/newsDetailFragment"
-        android:name="com.yeongjin.news.view.newsdetails.NewsDetailFragment"
-        android:label="{title}">
-        <argument
-            android:name="news"
-            app:argType="com.yeongjin.news.data.model.News"
-            />
-        <argument
-            android:name="title"
-            app:argType="string"
-            app:nullable="true" />
+    app:startDestination="@id/top_graph">
 
-    </fragment>
-    <fragment
-        android:id="@+id/savedNewsListFragment"
-        android:name="com.yeongjin.news.view.saved.SavedNewsListFragment"
-        android:label="Saved News" >
-        <action
-            android:id="@+id/action_savedNewsListFragment_to_newsDetailFragment"
-            app:destination="@id/newsDetailFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/newsListInCategoryFragment"
-        android:name="com.yeongjin.news.view.categories.NewsListInCategoryFragment"
-        android:label="Category - {category}" >
-        <argument
-            android:name="category"
-            app:argType="string" />
-        <action
-            android:id="@+id/action_newsListInCategoryFragment_to_newsDetailFragment"
-            app:destination="@id/newsDetailFragment" />
-    </fragment>
+    <include app:graph="@navigation/top_graph"/>
+    <include app:graph="@navigation/category_graph"/>
+    <include app:graph="@navigation/saved_graph"/>
 </navigation>
