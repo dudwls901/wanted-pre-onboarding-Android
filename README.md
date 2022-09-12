@@ -12,13 +12,14 @@
 
 ## TODO
 - Paging
-- Multiple Backstack(Navigation-Bottomnavigationview)
-  - 탭의 첫 페이지에도 '<-'버튼 생성되는 이슈 (해결)
+- ~~Multiple Backstack(Navigation-Bottomnavigationview)(해결)
+  - ~~탭의 첫 페이지에도 '<-'버튼 생성되는 이슈 (해결)
     - appBarConfiguration에 최상위 프래그먼트들 설정
     - appBarConfiguration = AppBarConfiguration(navController.graph)
     - appBarConfiguration = AppBarConfiguration(setOf(R.id.newsListFragment, R.id.newsCategoryFragment, R.id.savedNewsListFragment))
         
-  - Top News 탭에서 newsDetail 프래그먼트까지 활성화하고 Categories 탭으로 넘어간 후 다시 Top News 탭 클릭하면 화면은 newsDetail 프래그먼트이지만 탭은 여전히 Categories가 활성화되는 이슈
+  - ~~Top News 탭에서 newsDetail 프래그먼트까지 활성화하고 Categories 탭으로 넘어간 후 다시 Top News 탭 클릭하면 화면은 newsDetail 프래그먼트이지만 탭은 여전히 Categories가 활성화되는 이슈(해결)
+  - [4c85f84](https://github.com/dudwls901/wanted-pre-onboarding-Android/commit/4c85f843ba44e73a533cd51d324eb31848531a57)
   <img width="220" height="420" alt="issue" src="https://user-images.githubusercontent.com/66052467/189526425-396fe1f7-3110-4d5e-a325-161271381c26.png">
 
 ## 🪒Stacks
