@@ -24,11 +24,9 @@ news
 │   │   └── News.kt
 │   └── remote
 │       ├── ApiRequestFactory.kt
-│       ├── NewsPagingSource.kt
 │       ├── api
 │       │   └── NewsApi.kt
 │       └── repository
-│           ├── NewsPagingRepository.kt
 │           ├── NewsRepository.kt
 │           └── NewsRepositoryImpl.kt
 ├── global
