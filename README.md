@@ -9,7 +9,54 @@
 
 # Saved News
 <img width="220" height="420" alt="saved_empty" src="https://user-images.githubusercontent.com/66052467/189604359-0519cf3b-f717-436e-8d8b-43854fdab7e2.png"><img width="220" height="420" alt="saved_list" src="https://user-images.githubusercontent.com/66052467/189604372-6aab84ff-f756-4e51-bd93-7b55368e1e26.png"><img width="220" height="420" alt="saved_detail" src="https://user-images.githubusercontent.com/66052467/189525546-f3c0c786-38b0-4fff-b698-a33d3bc83397.png">
-
+# Structure
+```
+news
+├── data
+│   ├── local
+│   │   ├── NewsDao.kt
+│   │   ├── NewsDatabase.kt
+│   │   └── repository
+│   │       ├── SavedNewsRepository.kt
+│   │       └── SavedNewsRepositoryImpl.kt
+│   ├── model
+│   │   ├── Category.kt
+│   │   └── News.kt
+│   └── remote
+│       ├── ApiRequestFactory.kt
+│       ├── NewsPagingSource.kt
+│       ├── api
+│       │   └── NewsApi.kt
+│       └── repository
+│           ├── NewsPagingRepository.kt
+│           ├── NewsRepository.kt
+│           └── NewsRepositoryImpl.kt
+├── global
+│   ├── Constants.kt
+│   └── base
+│       └── BaseFragment.kt
+├── util
+│   └── BindingAdapter.kt
+├── view
+│   ├── MainActivity.kt
+│   ├── adapter
+│   │   ├── CategoryListAdapter.kt
+│   │   └── NewsListAdapter.kt
+│   ├── categories
+│   │   ├── NewsCategoryFragment.kt
+│   │   └── NewsListInCategoryFragment.kt
+│   ├── newsdetails
+│   │   └── NewsDetailFragment.kt
+│   ├── newslist
+│   │   └── NewsListFragment.kt
+│   └── saved
+│       └── SavedNewsListFragment.kt
+└── viewmodel
+    ├── NewsListIntCategoryViewModel.kt
+    ├── NewsListViewModel.kt
+    ├── SavedNewsListViewModel.kt
+    └── TopNewsListViewModel.kt
+```
 ## TODO
 - Paging
 - ~~Multiple Backstack(Navigation-Bottomnavigationview)(해결)~~
