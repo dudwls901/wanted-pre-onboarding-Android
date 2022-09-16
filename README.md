@@ -9,16 +9,62 @@
 
 # Saved News
 <img width="220" height="420" alt="saved_empty" src="https://user-images.githubusercontent.com/66052467/189604359-0519cf3b-f717-436e-8d8b-43854fdab7e2.png"><img width="220" height="420" alt="saved_list" src="https://user-images.githubusercontent.com/66052467/189604372-6aab84ff-f756-4e51-bd93-7b55368e1e26.png"><img width="220" height="420" alt="saved_detail" src="https://user-images.githubusercontent.com/66052467/189525546-f3c0c786-38b0-4fff-b698-a33d3bc83397.png">
-
+# Structure
+```
+news
+├── data
+│   ├── local
+│   │   ├── NewsDao.kt
+│   │   ├── NewsDatabase.kt
+│   │   └── repository
+│   │       ├── SavedNewsRepository.kt
+│   │       └── SavedNewsRepositoryImpl.kt
+│   ├── model
+│   │   ├── Category.kt
+│   │   └── News.kt
+│   └── remote
+│       ├── ApiRequestFactory.kt
+│       ├── api
+│       │   └── NewsApi.kt
+│       └── repository
+│           ├── NewsRepository.kt
+│           └── NewsRepositoryImpl.kt
+├── global
+│   ├── Constants.kt
+│   └── base
+│       └── BaseFragment.kt
+├── util
+│   └── BindingAdapter.kt
+├── view
+│   ├── MainActivity.kt
+│   ├── adapter
+│   │   ├── CategoryListAdapter.kt
+│   │   └── NewsListAdapter.kt
+│   ├── categories
+│   │   ├── NewsCategoryFragment.kt
+│   │   └── NewsListInCategoryFragment.kt
+│   ├── newsdetails
+│   │   └── NewsDetailFragment.kt
+│   ├── newslist
+│   │   └── NewsListFragment.kt
+│   └── saved
+│       └── SavedNewsListFragment.kt
+└── viewmodel
+    ├── NewsListIntCategoryViewModel.kt
+    ├── NewsListViewModel.kt
+    ├── SavedNewsListViewModel.kt
+    └── TopNewsListViewModel.kt
+```
 ## TODO
 - Paging
-- Multiple Backstack(Navigation-Bottomnavigationview)
-  - 탭의 첫 페이지에도 '<-'버튼 생성되는 이슈 (해결)
+- ~~Multiple Backstack(Navigation-Bottomnavigationview)(해결)~~
+  - ~~탭의 첫 페이지에도 '<-'버튼 생성되는 이슈 (해결)~~
     - appBarConfiguration에 최상위 프래그먼트들 설정
     - appBarConfiguration = AppBarConfiguration(navController.graph)
     - appBarConfiguration = AppBarConfiguration(setOf(R.id.newsListFragment, R.id.newsCategoryFragment, R.id.savedNewsListFragment))
         
-  - Top News 탭에서 newsDetail 프래그먼트까지 활성화하고 Categories 탭으로 넘어간 후 다시 Top News 탭 클릭하면 화면은 newsDetail 프래그먼트이지만 탭은 여전히 Categories가 활성화되는 이슈
+  - ~~Top News 탭에서 newsDetail 프래그먼트까지 활성화하고 Categories 탭으로 넘어간 후 다시 Top News 탭 클릭하면 화면은 newsDetail 프래그먼트이지만 탭은 여전히 Categories가 활성화되는 이슈(해결)~~
+    - [4c85f84](https://github.com/dudwls901/wanted-pre-onboarding-Android/commit/4c85f843ba44e73a533cd51d324eb31848531a57)
   <img width="220" height="420" alt="issue" src="https://user-images.githubusercontent.com/66052467/189526425-396fe1f7-3110-4d5e-a325-161271381c26.png">
 
 ## 🪒Stacks
