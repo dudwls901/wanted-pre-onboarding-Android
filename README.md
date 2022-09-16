@@ -56,7 +56,7 @@ news
     └── TopNewsListViewModel.kt
 ```
 ## TODO
-- Paging
+- ~~Paging()~~
 - ~~Multiple Backstack(Navigation-Bottomnavigationview)(해결)~~
   - ~~탭의 첫 페이지에도 '<-'버튼 생성되는 이슈 (해결)~~
     - appBarConfiguration에 최상위 프래그먼트들 설정
