@@ -77,3 +77,4 @@ news
 - DataBinding : 데이터와 뷰 연결
 - Room : 로컬 데이터베이스
 - Glide : 이미지 로드
+- Paging3 : 데이터 소스 페이징 처리
