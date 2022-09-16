@@ -29,7 +29,8 @@ abstract class NewsListViewModel: ViewModel() {
                 enablePlaceholders = false
             ),
             pagingSourceFactory = { newsPagingRepository.getTopNewsList(Constants.COUNTRY.US.name) }
-        ).liveData
+        ).liveData.cachedIn(viewModelScope)
+    //cachedIn : scope 내에서 흐름을 활성 상태로 유지하고 결과를 다시 pagingNewsList에 함당
 
     fun getCategoryNews(category: String) = viewModelScope.launch{
         val newsRepo = NewsRepositoryImpl()
