@@ -5,9 +5,6 @@ import com.yeongjin.news.data.remote.ApiRequestFactory
 import retrofit2.Response
 
 class NewsRepositoryImpl : NewsRepository {
-    override suspend fun getTopNewsList(country: String): Response<NewsList> {
-        return ApiRequestFactory.newsApiService.getTopNewsList(country)
-    }
 
     override suspend fun getCategoryNewsList(
         country: String,
