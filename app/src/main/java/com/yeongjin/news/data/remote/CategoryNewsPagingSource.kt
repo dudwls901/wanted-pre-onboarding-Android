@@ -12,15 +12,16 @@ import kotlinx.coroutines.delay
 import retrofit2.HttpException
 import java.io.IOException
 
-class NewsPagingSource(
+class CategoryNewsPagingSource(
     private val newsApi: NewsApi,
-    private val country: String
+    private val country: String,
+    private val category: String
 ) : PagingSource<Int, News>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, News> {
         val position = params.key ?: NEWS_STARTING_PAGE_INDEX
         return try {
-            val response = newsApi.getTopNewsList(country, position, params.loadSize)
+            val response = newsApi.getCategoryNewsList(country, position, params.loadSize, category)
             val newsList = response.body()?.articles
             val nextKey = if (newsList == null || newsList.isEmpty()) null else {
                 position + (params.loadSize / NETWORK_PAGE_SIZE)

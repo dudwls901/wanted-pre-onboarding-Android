@@ -3,19 +3,21 @@ package com.yeongjin.news.view.categories
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import com.yeongjin.news.R
 import com.yeongjin.news.databinding.FragmentCategoryNewsListBinding
 import com.yeongjin.news.global.base.BaseFragment
 import com.yeongjin.news.view.adapter.NewsListAdapter
+import com.yeongjin.news.view.adapter.NewsListPagingAdapter
 import com.yeongjin.news.view.newslist.NewsListFragment
 import com.yeongjin.news.viewmodel.NewsListIntCategoryViewModel
+import kotlinx.coroutines.launch
 
-//todo NewsListFragment 추상화
 class NewsListInCategoryFragment : BaseFragment<FragmentCategoryNewsListBinding>(R.layout.fragment_category_news_list) {
     override val TAG: String = NewsListInCategoryFragment::class.java.simpleName
 
-    private val adapter: NewsListAdapter by lazy { NewsListAdapter(NewsListInCategoryFragment::class.java.simpleName) }
+    private val adapter: NewsListPagingAdapter by lazy { NewsListPagingAdapter(NewsListInCategoryFragment::class.java.simpleName) }
     private val newsListViewModel: NewsListIntCategoryViewModel by viewModels()
     private val args by navArgs<NewsListInCategoryFragmentArgs>()
 
@@ -31,8 +33,10 @@ class NewsListInCategoryFragment : BaseFragment<FragmentCategoryNewsListBinding>
     }
 
     private fun observeDatas() {
-        newsListViewModel.newsList.observe(viewLifecycleOwner){ newsList ->
-            adapter.submitList(newsList)
+        newsListViewModel.pagingCategoryNewsList.observe(viewLifecycleOwner){ newsList ->
+            lifecycleScope.launch{
+                adapter.submitData(newsList)
+            }
         }
     }
 

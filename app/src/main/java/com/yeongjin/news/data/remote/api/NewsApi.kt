@@ -19,6 +19,8 @@ interface NewsApi {
     @GET(TOP_HEADLINES)
     suspend fun getCategoryNewsList(
         @Query("country") country: String,
+        @Query("page") page: Int,
+        @Query("pageSize") pageSize: Int,
         @Query("category") category: String
     ): Response<NewsList>
 }

@@ -14,11 +14,15 @@
         <entry key="app/src/main/res/drawable/ic_star_yellow_24.xml" value="0.1005" />
         <entry key="app/src/main/res/drawable/selector_nav_menu.xml" value="0.104" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_category.xml" value="0.12273550724637682" />
+        <entry key="app/src/main/res/layout/fragment_category_news_detail.xml" value="0.2171875" />
         <entry key="app/src/main/res/layout/fragment_category_news_list.xml" value="0.1474164133738602" />
         <entry key="app/src/main/res/layout/fragment_news_category.xml" value="0.22056159420289856" />
         <entry key="app/src/main/res/layout/fragment_news_detail.xml" value="0.22056159420289856" />
         <entry key="app/src/main/res/layout/fragment_news_list.xml" value="0.22056159420289856" />
+        <entry key="app/src/main/res/layout/fragment_saved_news_detail.xml" value="0.2171875" />
         <entry key="app/src/main/res/layout/fragment_saved_news_list.xml" value="0.22056159420289856" />
+        <entry key="app/src/main/res/layout/fragment_top_news_detail.xml" value="0.2171875" />
         <entry key="app/src/main/res/layout/fragment_top_news_list.xml" value="0.22056159420289856" />
         <entry key="app/src/main/res/layout/item_news_category.xml" value="0.335" />
         <entry key="app/src/main/res/layout/item_news_category_header.xml" value="0.11277173913043478" />
