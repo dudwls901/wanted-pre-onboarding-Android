@@ -8,13 +8,14 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
 import androidx.paging.liveData
+import com.yeongjin.news.data.remote.repository.NewsPagingRepository
 import com.yeongjin.news.data.remote.repository.NewsPagingRepositoryImpl
 import com.yeongjin.news.global.Constants
 
 class NewsListIntCategoryViewModel : ViewModel() {
     private val TAG = NewsListIntCategoryViewModel::class.java.name
 
-    private val newsPagingRepositoryImpl = NewsPagingRepositoryImpl()
+    private val newsPagingRepository: NewsPagingRepository = NewsPagingRepositoryImpl()
 
     private val query: MutableLiveData<String> = MutableLiveData()
 
@@ -25,7 +26,7 @@ class NewsListIntCategoryViewModel : ViewModel() {
                 enablePlaceholders = false
             ),
             pagingSourceFactory = {
-                newsPagingRepositoryImpl.getCategoryNewsList(
+                newsPagingRepository.getCategoryNewsList(
                     Constants.COUNTRY.US.name,
                     query
                 )
