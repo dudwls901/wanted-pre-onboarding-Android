@@ -1,20 +1,19 @@
 package com.yeongjin.news.viewmodel
 
-import android.app.Application
 import androidx.lifecycle.*
-import com.yeongjin.news.data.local.NewsDao
-import com.yeongjin.news.data.local.NewsDatabase
 import com.yeongjin.news.data.local.repository.SavedNewsRepository
-import com.yeongjin.news.data.local.repository.SavedNewsRepositoryImpl
 import com.yeongjin.news.data.model.News
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class SavedNewsListViewModel(application: Application) : AndroidViewModel(application) {
-    private val newsDao: NewsDao by lazy { NewsDatabase.getDatabase(application).newsDao() }
-    private val savedNewsRepo: SavedNewsRepository by lazy { SavedNewsRepositoryImpl(newsDao) }
+@HiltViewModel
+class SavedNewsListViewModel @Inject constructor(
+    private val savedNewsRepository: SavedNewsRepository,
+) : ViewModel() {
     private val TAG = SavedNewsListViewModel::class.java.name
 
-    var newsList: LiveData<List<News>> = SavedNewsRepositoryImpl(newsDao).getNewsList().asLiveData()
+    var newsList: LiveData<List<News>> = savedNewsRepository.getNewsList().asLiveData()
 
     private var _news = MutableLiveData<News>()
     val news: LiveData<News>
@@ -25,11 +24,11 @@ class SavedNewsListViewModel(application: Application) : AndroidViewModel(applic
         get() = _liked
 
     private fun saveNews() = viewModelScope.launch {
-        savedNewsRepo.saveNews(news.value!!)
+        savedNewsRepository.saveNews(news.value!!)
     }
 
     private fun deleteNews() = viewModelScope.launch {
-        savedNewsRepo.deleteNews(news.value!!)
+        savedNewsRepository.deleteNews(news.value!!)
     }
 
     fun onLikeButtonClick() {
