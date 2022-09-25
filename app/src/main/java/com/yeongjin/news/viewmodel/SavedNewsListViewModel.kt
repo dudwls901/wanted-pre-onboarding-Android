@@ -1,19 +1,23 @@
 package com.yeongjin.news.viewmodel
 
 import androidx.lifecycle.*
-import com.yeongjin.news.domain.repository.SavedNewsRepository
 import com.yeongjin.news.data.model.News
+import com.yeongjin.news.domain.usecase.DeleteNewsUseCase
+import com.yeongjin.news.domain.usecase.GetSavedNewsListUseCase
+import com.yeongjin.news.domain.usecase.SaveNewsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class SavedNewsListViewModel @Inject constructor(
-    private val savedNewsRepository: SavedNewsRepository,
+    getSavedNewsListUseCase: GetSavedNewsListUseCase,
+    private val saveNewsUseCase: SaveNewsUseCase,
+    private val deleteNewsUseCase: DeleteNewsUseCase,
 ) : ViewModel() {
     private val TAG = SavedNewsListViewModel::class.java.name
 
-    var newsList: LiveData<List<News>> = savedNewsRepository.getNewsList().asLiveData()
+    var newsList: LiveData<List<News>> = getSavedNewsListUseCase().asLiveData()
 
     private var _news = MutableLiveData<News>()
     val news: LiveData<News>
@@ -24,11 +28,11 @@ class SavedNewsListViewModel @Inject constructor(
         get() = _liked
 
     private fun saveNews() = viewModelScope.launch {
-        savedNewsRepository.saveNews(news.value!!)
+        saveNewsUseCase(news.value!!)
     }
 
     private fun deleteNews() = viewModelScope.launch {
-        savedNewsRepository.deleteNews(news.value!!)
+        deleteNewsUseCase(news.value!!)
     }
 
     fun onLikeButtonClick() {

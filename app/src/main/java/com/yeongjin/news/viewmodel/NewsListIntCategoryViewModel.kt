@@ -8,14 +8,14 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
 import androidx.paging.liveData
-import com.yeongjin.news.domain.usecase.getCategoryNewsListUseCase
+import com.yeongjin.news.domain.usecase.GetCategoryNewsListUseCase
 import com.yeongjin.news.global.Constants
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class NewsListIntCategoryViewModel @Inject constructor(
-    private val getCategoryNewsListUseCase: getCategoryNewsListUseCase,
+    private val getCategoryNewsListUseCase: GetCategoryNewsListUseCase,
 ) : ViewModel() {
     private val TAG = NewsListIntCategoryViewModel::class.java.name
 
