@@ -10,13 +10,15 @@ import androidx.paging.cachedIn
 import androidx.paging.liveData
 import com.yeongjin.news.data.model.News
 import com.yeongjin.news.data.remote.repository.NewsPagingRepository
-import com.yeongjin.news.data.remote.repository.NewsPagingRepositoryImpl
 import com.yeongjin.news.global.Constants
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class TopNewsListViewModel: ViewModel() {
+@HiltViewModel
+class TopNewsListViewModel @Inject constructor(
+    private val newsPagingRepository: NewsPagingRepository
+) : ViewModel() {
     private val TAG = TopNewsListViewModel::class.java.name
-
-    private val newsPagingRepository: NewsPagingRepository = NewsPagingRepositoryImpl()
 
     private var _newsList = MutableLiveData<List<News>>()
     val newsList: LiveData<List<News>>
