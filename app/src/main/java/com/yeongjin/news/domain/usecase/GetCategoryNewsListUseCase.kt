@@ -3,7 +3,7 @@ package com.yeongjin.news.domain.usecase
 import com.yeongjin.news.domain.repository.NewsPagingRepository
 import javax.inject.Inject
 
-class getCategoryNewsListUseCase @Inject constructor(
+class GetCategoryNewsListUseCase @Inject constructor(
     private val newsPagingRepository: NewsPagingRepository,
 ) {
     operator fun invoke(
