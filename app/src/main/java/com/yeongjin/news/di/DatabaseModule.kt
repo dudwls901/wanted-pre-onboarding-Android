@@ -2,7 +2,7 @@ package com.yeongjin.news.di
 
 import android.content.Context
 import androidx.room.Room
-import com.yeongjin.news.data.local.NewsDao
+import com.yeongjin.news.data.local.dao.NewsDao
 import com.yeongjin.news.data.local.NewsDatabase
 import dagger.Module
 import dagger.Provides
@@ -27,7 +27,7 @@ object DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideNewsDao(database: NewsDatabase): NewsDao{
+    fun provideNewsDao(database: NewsDatabase): NewsDao {
         return database.newsDao()
     }
 }

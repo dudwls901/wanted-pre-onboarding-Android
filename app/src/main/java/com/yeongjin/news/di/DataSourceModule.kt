@@ -1,6 +1,6 @@
 package com.yeongjin.news.di
 
-import com.yeongjin.news.data.local.NewsDao
+import com.yeongjin.news.data.local.dao.NewsDao
 import com.yeongjin.news.data.local.datasource.SavedNewsLocalDataSource
 import com.yeongjin.news.data.local.datasourceimpl.SavedNewsLocalDataSourceImpl
 import com.yeongjin.news.data.remote.api.NewsApi

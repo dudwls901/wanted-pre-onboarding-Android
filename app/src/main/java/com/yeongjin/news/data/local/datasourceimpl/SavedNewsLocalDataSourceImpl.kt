@@ -1,6 +1,6 @@
 package com.yeongjin.news.data.local.datasourceimpl
 
-import com.yeongjin.news.data.local.NewsDao
+import com.yeongjin.news.data.local.dao.NewsDao
 import com.yeongjin.news.data.local.datasource.SavedNewsLocalDataSource
 import com.yeongjin.news.data.model.News
 import kotlinx.coroutines.flow.Flow
