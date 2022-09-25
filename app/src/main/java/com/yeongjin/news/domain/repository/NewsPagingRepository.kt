@@ -1,4 +1,4 @@
-package com.yeongjin.news.data.repository
+package com.yeongjin.news.domain.repository
 
 import com.yeongjin.news.data.remote.paging.CategoryNewsPagingSource
 import com.yeongjin.news.data.remote.paging.NewsPagingSource

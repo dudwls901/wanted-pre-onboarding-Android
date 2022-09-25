@@ -1,12 +1,11 @@
 package com.yeongjin.news.di
 
 import com.yeongjin.news.data.local.datasource.SavedNewsLocalDataSource
-import com.yeongjin.news.data.repository.SavedNewsRepository
-import com.yeongjin.news.data.repositoryimpl.SavedNewsRepositoryImpl
-import com.yeongjin.news.data.remote.api.NewsApi
 import com.yeongjin.news.data.remote.datasource.NewsPagingRemoteDataSource
-import com.yeongjin.news.data.repository.NewsPagingRepository
 import com.yeongjin.news.data.repositoryimpl.NewsPagingRepositoryImpl
+import com.yeongjin.news.data.repositoryimpl.SavedNewsRepositoryImpl
+import com.yeongjin.news.domain.repository.NewsPagingRepository
+import com.yeongjin.news.domain.repository.SavedNewsRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

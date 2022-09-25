@@ -8,14 +8,14 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
 import androidx.paging.liveData
-import com.yeongjin.news.data.repository.NewsPagingRepository
+import com.yeongjin.news.domain.usecase.getCategoryNewsListUseCase
 import com.yeongjin.news.global.Constants
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class NewsListIntCategoryViewModel @Inject constructor(
-    private val newsPagingRepository: NewsPagingRepository
+    private val getCategoryNewsListUseCase: getCategoryNewsListUseCase,
 ) : ViewModel() {
     private val TAG = NewsListIntCategoryViewModel::class.java.name
 
@@ -28,7 +28,7 @@ class NewsListIntCategoryViewModel @Inject constructor(
                 enablePlaceholders = false
             ),
             pagingSourceFactory = {
-                newsPagingRepository.getCategoryNewsList(
+                getCategoryNewsListUseCase(
                     Constants.COUNTRY.US.name,
                     query
                 )
