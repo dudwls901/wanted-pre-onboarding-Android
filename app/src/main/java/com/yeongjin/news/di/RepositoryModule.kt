@@ -1,6 +1,6 @@
 package com.yeongjin.news.di
 
-import com.yeongjin.news.data.local.NewsDao
+import com.yeongjin.news.data.local.datasource.SavedNewsLocalDataSource
 import com.yeongjin.news.data.local.repository.SavedNewsRepository
 import com.yeongjin.news.data.local.repository.SavedNewsRepositoryImpl
 import com.yeongjin.news.data.remote.api.NewsApi
@@ -28,8 +28,8 @@ class RepositoryModule {
     @Provides
     @Singleton
     fun provideSavedNewsRepository(
-        newsDao: NewsDao,
+        savedNewsLocalDataSource: SavedNewsLocalDataSource,
     ): SavedNewsRepository {
-        return SavedNewsRepositoryImpl(newsDao)
+        return SavedNewsRepositoryImpl(savedNewsLocalDataSource)
     }
 }
