@@ -1,20 +1,23 @@
 package com.yeongjin.news.viewmodel
 
-import android.app.Application
 import androidx.lifecycle.*
-import com.yeongjin.news.data.local.NewsDao
-import com.yeongjin.news.data.local.NewsDatabase
-import com.yeongjin.news.data.local.repository.SavedNewsRepository
-import com.yeongjin.news.data.local.repository.SavedNewsRepositoryImpl
 import com.yeongjin.news.data.model.News
+import com.yeongjin.news.domain.usecase.DeleteNewsUseCase
+import com.yeongjin.news.domain.usecase.GetSavedNewsListUseCase
+import com.yeongjin.news.domain.usecase.SaveNewsUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class SavedNewsListViewModel(application: Application) : AndroidViewModel(application) {
-    private val newsDao: NewsDao by lazy { NewsDatabase.getDatabase(application).newsDao() }
-    private val savedNewsRepo: SavedNewsRepository by lazy { SavedNewsRepositoryImpl(newsDao) }
+@HiltViewModel
+class SavedNewsListViewModel @Inject constructor(
+    getSavedNewsListUseCase: GetSavedNewsListUseCase,
+    private val saveNewsUseCase: SaveNewsUseCase,
+    private val deleteNewsUseCase: DeleteNewsUseCase,
+) : ViewModel() {
     private val TAG = SavedNewsListViewModel::class.java.name
 
-    var newsList: LiveData<List<News>> = SavedNewsRepositoryImpl(newsDao).getNewsList().asLiveData()
+    var newsList: LiveData<List<News>> = getSavedNewsListUseCase().asLiveData()
 
     private var _news = MutableLiveData<News>()
     val news: LiveData<News>
@@ -25,11 +28,11 @@ class SavedNewsListViewModel(application: Application) : AndroidViewModel(applic
         get() = _liked
 
     private fun saveNews() = viewModelScope.launch {
-        savedNewsRepo.saveNews(news.value!!)
+        saveNewsUseCase(news.value!!)
     }
 
     private fun deleteNews() = viewModelScope.launch {
-        savedNewsRepo.deleteNews(news.value!!)
+        deleteNewsUseCase(news.value!!)
     }
 
     fun onLikeButtonClick() {

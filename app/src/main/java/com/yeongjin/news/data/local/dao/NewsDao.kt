@@ -1,4 +1,4 @@
-package com.yeongjin.news.data.local
+package com.yeongjin.news.data.local.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*

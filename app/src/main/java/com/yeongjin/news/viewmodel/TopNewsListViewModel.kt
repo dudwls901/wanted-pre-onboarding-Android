@@ -9,13 +9,16 @@ import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
 import androidx.paging.liveData
 import com.yeongjin.news.data.model.News
-import com.yeongjin.news.data.remote.repository.NewsPagingRepositoryImpl
+import com.yeongjin.news.domain.usecase.GetNewsListUseCase
 import com.yeongjin.news.global.Constants
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class TopNewsListViewModel: ViewModel() {
+@HiltViewModel
+class TopNewsListViewModel @Inject constructor(
+    private val getNewsListUseCase: GetNewsListUseCase,
+) : ViewModel() {
     private val TAG = TopNewsListViewModel::class.java.name
-
-    private val newsPagingRepositoryImpl = NewsPagingRepositoryImpl()
 
     private var _newsList = MutableLiveData<List<News>>()
     val newsList: LiveData<List<News>>
@@ -26,7 +29,7 @@ class TopNewsListViewModel: ViewModel() {
             pageSize = Constants.NETWORK_PAGE_SIZE,
             enablePlaceholders = false
         ),
-        pagingSourceFactory = { newsPagingRepositoryImpl.getTopNewsList(Constants.COUNTRY.US.name) }
+        pagingSourceFactory = { getNewsListUseCase(Constants.COUNTRY.US.name) }
     ).liveData.cachedIn(viewModelScope)
     //cachedIn : scope 내에서 흐름을 활성 상태로 유지하고 결과를 다시 pagingNewsList에 함당
 
