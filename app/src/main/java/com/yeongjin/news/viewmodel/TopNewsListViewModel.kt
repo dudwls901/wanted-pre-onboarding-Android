@@ -9,7 +9,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
 import androidx.paging.liveData
 import com.yeongjin.news.data.model.News
-import com.yeongjin.news.data.remote.repository.NewsPagingRepository
+import com.yeongjin.news.data.repository.NewsPagingRepository
 import com.yeongjin.news.global.Constants
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

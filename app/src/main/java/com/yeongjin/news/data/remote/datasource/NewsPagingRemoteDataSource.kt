@@ -1,14 +1,14 @@
-package com.yeongjin.news.data.remote.repository
+package com.yeongjin.news.data.remote.datasource
 
 import com.yeongjin.news.data.remote.CategoryNewsPagingSource
 import com.yeongjin.news.data.remote.NewsPagingSource
 
-interface NewsPagingRepository {
+interface NewsPagingRemoteDataSource {
     fun getTopNewsList(country: String): NewsPagingSource
 
     fun getCategoryNewsList(
         country: String,
-        category: String
+        category: String,
     ): CategoryNewsPagingSource
 
 }

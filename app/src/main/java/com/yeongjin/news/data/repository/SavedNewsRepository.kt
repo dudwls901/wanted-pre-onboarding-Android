@@ -1,4 +1,4 @@
-package com.yeongjin.news.data.local.repository
+package com.yeongjin.news.data.repository
 
 import com.yeongjin.news.data.model.News
 import kotlinx.coroutines.flow.Flow

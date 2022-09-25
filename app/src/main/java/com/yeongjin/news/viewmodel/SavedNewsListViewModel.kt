@@ -1,7 +1,7 @@
 package com.yeongjin.news.viewmodel
 
 import androidx.lifecycle.*
-import com.yeongjin.news.data.local.repository.SavedNewsRepository
+import com.yeongjin.news.data.repository.SavedNewsRepository
 import com.yeongjin.news.data.model.News
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

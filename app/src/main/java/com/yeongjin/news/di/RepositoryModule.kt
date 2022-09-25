@@ -1,11 +1,12 @@
 package com.yeongjin.news.di
 
 import com.yeongjin.news.data.local.datasource.SavedNewsLocalDataSource
-import com.yeongjin.news.data.local.repository.SavedNewsRepository
-import com.yeongjin.news.data.local.repository.SavedNewsRepositoryImpl
+import com.yeongjin.news.data.repository.SavedNewsRepository
+import com.yeongjin.news.data.repositoryimpl.SavedNewsRepositoryImpl
 import com.yeongjin.news.data.remote.api.NewsApi
-import com.yeongjin.news.data.remote.repository.NewsPagingRepository
-import com.yeongjin.news.data.remote.repository.NewsPagingRepositoryImpl
+import com.yeongjin.news.data.remote.datasource.NewsPagingRemoteDataSource
+import com.yeongjin.news.data.repository.NewsPagingRepository
+import com.yeongjin.news.data.repositoryimpl.NewsPagingRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,9 +21,9 @@ class RepositoryModule {
     @Provides
     @Singleton
     fun provideNewsRepository(
-        newsApi: NewsApi,
+        newsPagingRemoteDataSource: NewsPagingRemoteDataSource,
     ): NewsPagingRepository {
-        return NewsPagingRepositoryImpl(newsApi)
+        return NewsPagingRepositoryImpl(newsPagingRemoteDataSource)
     }
 
     @Provides
