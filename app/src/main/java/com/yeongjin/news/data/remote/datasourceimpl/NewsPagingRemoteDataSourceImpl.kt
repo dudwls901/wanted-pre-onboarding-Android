@@ -1,7 +1,7 @@
 package com.yeongjin.news.data.remote.datasourceimpl
 
-import com.yeongjin.news.data.remote.CategoryNewsPagingSource
-import com.yeongjin.news.data.remote.NewsPagingSource
+import com.yeongjin.news.data.remote.paging.CategoryNewsPagingSource
+import com.yeongjin.news.data.remote.paging.NewsPagingSource
 import com.yeongjin.news.data.remote.api.NewsApi
 import com.yeongjin.news.data.remote.datasource.NewsPagingRemoteDataSource
 import javax.inject.Inject

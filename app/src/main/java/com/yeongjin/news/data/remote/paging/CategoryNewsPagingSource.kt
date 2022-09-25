@@ -1,26 +1,24 @@
-package com.yeongjin.news.data.remote
+package com.yeongjin.news.data.remote.paging
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.yeongjin.news.data.model.News
 import com.yeongjin.news.data.remote.api.NewsApi
 import com.yeongjin.news.global.Constants.NETWORK_PAGE_SIZE
 import com.yeongjin.news.global.Constants.NEWS_STARTING_PAGE_INDEX
-import kotlinx.coroutines.delay
 import retrofit2.HttpException
 import java.io.IOException
 
-class NewsPagingSource(
+class CategoryNewsPagingSource(
     private val newsApi: NewsApi,
-    private val country: String
+    private val country: String,
+    private val category: String
 ) : PagingSource<Int, News>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, News> {
         val position = params.key ?: NEWS_STARTING_PAGE_INDEX
         return try {
-            val response = newsApi.getTopNewsList(country, position, params.loadSize)
+            val response = newsApi.getCategoryNewsList(country, position, params.loadSize, category)
             val newsList = response.body()?.articles
             val nextKey = if (newsList == null || newsList.isEmpty()) null else {
                 position + (params.loadSize / NETWORK_PAGE_SIZE)

@@ -1,7 +1,7 @@
 package com.yeongjin.news.data.remote.datasource
 
-import com.yeongjin.news.data.remote.CategoryNewsPagingSource
-import com.yeongjin.news.data.remote.NewsPagingSource
+import com.yeongjin.news.data.remote.paging.CategoryNewsPagingSource
+import com.yeongjin.news.data.remote.paging.NewsPagingSource
 
 interface NewsPagingRemoteDataSource {
     fun getTopNewsList(country: String): NewsPagingSource
